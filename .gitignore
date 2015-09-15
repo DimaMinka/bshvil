@@ -32,6 +32,7 @@ sitemap.xml.gz
 ## Development
 .sass-cache
 bower_components
+/wp/wpchange.php
 node_modules
 build
 dist
