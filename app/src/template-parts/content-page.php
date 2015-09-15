@@ -9,23 +9,29 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
+<section id="post-<?php the_ID(); ?>" <?php post_class( 'main__section' ); ?>>
+    <div class="main__section-inner">
+        <div class="description">
+            <h1 class="description__title"><?php the_title(); ?></h1>
+            <?php the_post_thumbnail( 'full' ); ?>
+            <?php the_content(); ?>
+        </div>
 
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'bshvil' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+        <div class="form__wrapper">
+          <?php echo bshvil_contact_form( 'cdk_contact_settings1' ); ?>
+        </div>
 
-	<footer class="entry-footer">
-		<?php edit_post_link( esc_html__( 'Edit', 'bshvil' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+        <div class="form__wrapper">
+            <?php echo bshvil_contact_form( 'cdk_contact_settings2' ); ?>
+        </div>
 
+    </div>
+</section><!-- section -->
+<?php $postID = ( is_page() ? $post->ID : get_option( 'page_on_front' ) ); ?>
+<?php if( get_post_meta( $postID, 'cdk_bottom_category', true )) : ?>
+<section class="main__section white">
+    <div class="main__section-inner">
+        <?php get_template_part( 'template-parts/module', 'video' ); ?>
+    </div>
+</section><!-- section -->
+<?php endif; ?>

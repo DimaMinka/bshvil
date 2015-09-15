@@ -12,37 +12,49 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+            <section class="main__section white">
+                <div class="main__section-inner">
+                    <div class="news__wrapper">
+                        <h1 class="news__title"><?php single_cat_title( '', true ); ?></h1>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
+                        <?php if ( have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+                            <?php /* Start the Loop */ ?>
+                            <?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
+                                <?php get_template_part( 'template-parts/content', 'search' ); ?>
 
-					/*
-					 * Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'template-parts/content', get_post_format() );
-				?>
+                            <?php endwhile; ?>
 
-			<?php endwhile; ?>
+                            <?php the_posts_navigation(); ?>
 
-			<?php the_posts_navigation(); ?>
+                        <?php else : ?>
 
-		<?php else : ?>
+                            <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+                        <?php endif; ?>
 
-		<?php endif; ?>
+                </div>
+
+                    <div class="form__wrapper">
+                        <?php echo bshvil_contact_form( 'cdk_contact_settings1' ); ?>
+                    </div>
+
+                    <div class="form__wrapper">
+                        <?php echo bshvil_contact_form( 'cdk_contact_settings2' ); ?>
+                    </div>
+
+            </div>
+        </section><!-- section -->
+
+            <?php $postID = ( is_page() ? $post->ID : get_option( 'page_on_front' ) ); ?>
+            <?php if( get_post_meta( $postID, 'cdk_bottom_category', true )) : ?>
+                <section class="main__section white">
+                    <div class="main__section-inner">
+                        <?php get_template_part( 'template-parts/module', 'video' ); ?>
+                    </div>
+                </section><!-- section -->
+            <?php endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

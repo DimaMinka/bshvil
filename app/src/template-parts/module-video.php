@@ -5,7 +5,9 @@
  *
  * @package bshvil
  */
-$categoryBottom = ( '' !=  get_post_meta( $post->ID, 'cdk_bottom_category', true  ) ? get_post_meta( $post->ID, 'cdk_bottom_category', true  ) : '' );
+
+$postID = ( is_page() ? $post->ID : get_option( 'page_on_front' ) );
+$categoryBottom = ( '' !=  get_post_meta( $postID, 'cdk_bottom_category', true  ) ? get_post_meta( $postID, 'cdk_bottom_category', true  ) : '' );
 
 $slides = '';
 $caruselSlides = get_posts( 'category='.$categoryBottom.'posts_per_page=-1' );
@@ -34,5 +36,5 @@ foreach ( $caruselSlides as $caruselSlide ) {
 
 <div class="carousel carousel-yt carousel-last">
     <h3 class="carousel__title"><?php echo get_cat_name( $categoryBottom ); ?></h3>
-    <div class="owl-carousel owl-carousel-yt"><?php echo $slides; ?></div>
+    <div class="owl-carousel owl-carousel-yt<?php if( !(is_home() || is_front_page()) ) echo ' divide'; ?>"><?php echo $slides; ?></div>
 </div>

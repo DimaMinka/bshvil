@@ -5296,7 +5296,12 @@
 						autoSize	: true,
 						closeClick	: false,
 						openEffect	: 'none',
-						closeEffect	: 'fade'
+                        closeEffect	: 'fade',
+                        helpers: {
+                            overlay: {
+                                locked: false
+                            }
+                        }
 					});
 				};
     });

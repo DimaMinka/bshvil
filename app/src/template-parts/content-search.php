@@ -9,23 +9,15 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+<div id="post-<?php the_ID(); ?>" <?php post_class( 'news' ); ?>>
+    <div class="news__avatar">
+        <?php the_post_thumbnail( 'medium', '' ); ?>
+    </div>
+    <div class="news__text">
+        <h2 class="news__title"><?php the_title(); ?></h2>
+        <span class="news__date"><?php echo get_post_meta( $post->ID, 'cdk_subtitle', true ); ?></span>
+        <p class="news__paragraph"><?php echo $post->post_excerpt; ?><a href="<?php the_permalink(); ?>" class="news__link"><?php _e( 'Read more...' ) ?></a></p>
+    </div>
+</div>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php bshvil_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php bshvil_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
 

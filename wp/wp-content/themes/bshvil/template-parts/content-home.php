@@ -35,7 +35,7 @@
 
 <section class="main__section white">
     <div class="main__section-inner">
-        <div class="post">
+        <div class="post__bottom">
             <?php
                 if(get_theme_mod( 'cdk_contact_settings3', true )) :
                     $bottom_page = get_post( get_theme_mod( 'cdk_contact_settings3', true ) );

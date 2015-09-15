@@ -346,7 +346,6 @@ msgstr ""
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-
 #: template-parts/content-home.php:19
 #@ _s
 msgid "Thanks..."

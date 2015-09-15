@@ -1,146 +1,147 @@
 .sticky {
-	display: block;
+  display: block;
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 }
 
 .byline,
-.updated:not(.published){
-	display: none;
+.updated:not(.published) {
+  display: none;
 }
 
 .single .byline,
 .group-blog .byline {
-	display: inline;
+  display: inline;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 
 .page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+  clear: both;
+  margin: 0 0 1.5em;
 }
 
 /*homepage*/
 .main__section {
-	@include cf();
+  @include cf();
 
-	&.white {
-		background-color: $color__background-body;
-	}
+  &.white {
+    background-color: $color__background-body;
+  }
 
-	&.grey {
-		background-color: $color__grey;
-	}
+  &.grey {
+    background-color: $color__grey;
+  }
 }
 
 .main__section-inner {
-	@include cf();
-	max-width: $container__width;
-	padding: $container__padding;
-	padding-top: 1.25em;
-	padding-bottom: 1.25em;
-	margin: 0 auto;
+  @include cf();
+  max-width: $container__width;
+  padding: $container__padding;
+  padding-top: 1.25em;
+  padding-bottom: 1.25em;
+  margin: 0 auto;
 }
 
 .common-page .main__section-inner {
-	padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .description {
-	margin-left: 15px;
-	padding: 0.625em 0 2em;
-	float: right;
-	width: 71.79%;
-	max-width: 51.4em;
+  margin-left: 15px;
+  padding: 0.625em 0 2em;
+  float: right;
+  max-width: 51.4em;
+  min-height: 400px;
+  width: 71.79%;
 }
 
 .description p {
-	@include font-size(1.125);
-	font-weight: 300;
+  @include font-size(1.125);
+  font-weight: 300;
 }
 
 .description h1 {
-	@include font-size(1.875);
-	font-weight: 300;
+  @include font-size(1.875);
+  font-weight: 300;
 }
 
 .common-page .description {
-	padding: 0.4em 0 0;
+  padding: 0.4em 0 0;
 }
 
 .form__wrapper {
-	margin: 1em 0;
-	float: left;
-	max-width: 17em;
-	min-width: 272px;
-	width:23.7%;
+  margin: 1em 0;
+  float: left;
+  max-width: 17em;
+  min-width: 272px;
+  width: 23.7%;
 }
 
 .form__wrapper-alternate {
-	max-width: 347px;
-	min-width: 276px;
-	width:30.3%;
+  max-width: 347px;
+  min-width: 276px;
+  width: 30.3%;
 }
 
-.common-page .form__wrapper{
-	margin-bottom: 38px;
+.common-page .form__wrapper {
+  margin-bottom: 38px;
 }
 
 .carousel__title {
-	margin: 0 0 1.2em;
-	@include font-size(2.25);
-	text-align: center;
-	font-weight: 400;
-	color: $color__brown;
+  margin: 0 0 1.2em;
+  @include font-size(2.25);
+  text-align: center;
+  font-weight: 400;
+  color: $color__brown;
 }
 
 .carousel {
-	position: relative;
+  position: relative;
   margin-bottom: 28px;
   border-bottom: 1px solid #dfd9ce;
   padding-bottom: 15px;
 }
 
 .carousel-second {
-	margin-bottom: 20px;
-	padding-bottom: 0;
+  margin-bottom: 20px;
+  padding-bottom: 0;
 }
 
 .carousel-last {
-	border-bottom: none;
-	margin-bottom: 0px;
+  border-bottom: none;
+  margin-bottom: 0px;
   padding-bottom: 0px;
 }
 
 .carousel-yt .carousel__title {
-	@include font-size(2.25);
-	margin-bottom: 30px;
-	color: $color__red;
+  @include font-size(2.25);
+  margin-bottom: 30px;
+  color: $color__red;
 
-	span {
-		@include font-size(1.93);
-	}
+  span {
+    @include font-size(1.93);
+  }
 }
 
-.post {
-	@extend .description;
-	padding: 0 17px;
-	width: 65.67%;
-	max-width: 47em;
+.post__bottom {
+  @extend .description;
+  padding: 0 17px;
+  width: 65.67%;
+  max-width: 47em;
 }
 
 .post__title {
-	@include font-size(2.25);
-	color: $color__green;
-	font-weight: 400;
-	margin-top: 23px;
+  @include font-size(2.25);
+  color: $color__green;
+  font-weight: 400;
+  margin-top: 23px;
 
 }
 
@@ -163,9 +164,9 @@
 }
 
 .post__link {
-	position: relative;
-	@include font-size(1.125);
-	float: left;
+  position: relative;
+  @include font-size(1.125);
+  float: left;
   margin: 30px 0 0 25px;
   padding-left: 20px;
   color: $color__text-main;
@@ -173,97 +174,97 @@
   text-decoration: none;
 
   &:after {
-  	position: absolute;
-		@include font-size(1);
+    position: absolute;
+    @include font-size(1);
     content: '>';
     top: 2px;
     left: 4px;
-  	color: $color__text-main;
-	}
+    color: $color__text-main;
+  }
 
-	&:hover {
-		color: $color__link;
-		&:after {
-			color: $color__link;
-		}
-	}
+  &:hover {
+    color: $color__link;
+    &:after {
+      color: $color__link;
+    }
+  }
 }
 
 .divide {
-	border-top: 1px solid #dfd9ce;
-	padding-top: 2.5em;
-	padding-bottom: 3.125em;
+  border-top: 1px solid #dfd9ce;
+  padding-top: 2.5em;
+  padding-bottom: 3.125em;
 }
 
 .news__wrapper {
-	float: right;
-	width: 72.4%;
-	max-width: 51.8em;
+  float: right;
+  width: 72.4%;
+  max-width: 51.8em;
 }
 
 .news__title {
-	@include font-size(1.875);
-	font-weight: 300;
-	margin: 1em 0 0 0;
+  @include font-size(1.875);
+  font-weight: 300;
+  margin: 1em 0 0 0;
 }
 
 .news {
-	@include cf();;
-	margin-bottom: 40px;
+  @include cf();;
+  margin-bottom: 40px;
   border-bottom: 1px solid #dfd9ce;
-	min-height: 100px;
+  min-height: 100px;
 
   &:last-child {
-  	border-bottom: none;
+    border-bottom: none;
   }
 }
 
 .news__avatar,
 .news__text {
-	float: right;
+  float: right;
 }
 
 .news__avatar {
-	width: 23%;
-	height: 100%;
-	min-width: 1px;
-	min-height: 1px;
-	img {
-		max-width: 100%;
-	}
+  width: 23%;
+  height: 100%;
+  min-width: 1px;
+  min-height: 1px;
+  img {
+    max-width: 100%;
+  }
 }
 
 .news__text {
-	width: 77%;
-	padding: 8px 13px;
-	@include font-size(1.125);
+  width: 77%;
+  padding: 8px 13px;
+  @include font-size(1.125);
 
-	.news__title {
-		float: right;
-		@include font-size(1.125);
-		font-weight: 700;
-		margin: 0;
-	}
+  .news__title {
+    float: right;
+    @include font-size(1.125);
+    font-weight: 700;
+    margin: 0;
+  }
 
-	.news__date {
-		float: left;
-	}
+  .news__date {
+    float: left;
+  }
 
-	.news__paragraph {
-		clear: both;
-	}
+  .news__paragraph {
+    clear: both;
+  }
 
-	.news__link {
-		font-size: 0;
-		text-indent: -9999px;
+  .news__link {
+    font-size: 0;
+    text-indent: -9999px;
 
-		&:after {
-			content: '>>>';
-			@include font-size(1.125);
-			font-weight: bold;
-			white-space: nowrap;
-		}
-	}
+    &:after {
+      content: '>>>';
+      @include font-size(1.125);
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
 }
 
 

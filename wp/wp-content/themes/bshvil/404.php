@@ -12,45 +12,31 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bshvil' ); ?></h1>
-				</header><!-- .page-header -->
+            <section id="post-<?php the_ID(); ?>" <?php post_class( 'main__section' ); ?>>
+                <div class="main__section-inner">
+                    <div class="description">
+                        <h1 class="description__title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bshvil' ); ?></h1>
+                        <p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'bshvil' ); ?></p>
+                    </div>
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'bshvil' ); ?></p>
+                    <div class="form__wrapper">
+                        <?php echo bshvil_contact_form( 'cdk_contact_settings1' ); ?>
+                    </div>
 
-					<?php get_search_form(); ?>
+                    <div class="form__wrapper">
+                        <?php echo bshvil_contact_form( 'cdk_contact_settings2' ); ?>
+                    </div>
 
-					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
-
-					<?php if ( bshvil_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'bshvil' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
-					<?php endif; ?>
-
-					<?php
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'bshvil' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-					?>
-
-					<?php the_widget( 'WP_Widget_Tag_Cloud' ); ?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+                </div>
+            </section><!-- section -->
+            <?php $postID = ( is_page() ? $post->ID : get_option( 'page_on_front' ) ); ?>
+            <?php if( get_post_meta( $postID, 'cdk_bottom_category', true )) : ?>
+                <section class="main__section white">
+                    <div class="main__section-inner">
+                        <?php get_template_part( 'template-parts/module', 'video' ); ?>
+                    </div>
+                </section><!-- section -->
+            <?php endif; ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
