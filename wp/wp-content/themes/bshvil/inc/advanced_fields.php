@@ -23,7 +23,16 @@ $wp_customize->add_section(
     )
 );
 
-$fields = array('contact_settings');
+$wp_customize->add_section(
+    'footer_settings',
+    array(
+        'priority' => 30,
+        'theme_supports' => '',
+        'title' => __( 'Footer' )
+    )
+);
+
+$fields = array('contact_settings', 'footer_settings' );
 
 $i = 0;
 foreach ($fields as $field) {
@@ -31,11 +40,23 @@ foreach ($fields as $field) {
 
     $wp_customize->get_section( $field )->panel = 'general_settings';
 
-    for($d = 1; $d <= 2; $d++) {
+    $limit_fields = ( $field == 'footer_settings' ? '5' : '3' );
 
-        $label[1] = ('1' == $d ? __( 'Contact Form', 'contact-form-7' ).' - '.__( 'Top' ) : '');
-        $label[2] = ('2' == $d ? __( 'Contact Form', 'contact-form-7' ).' - '.__( 'Bottom' ) : '');
+    for($d = 1; $d <= $limit_fields; $d++) {
 
+        if($field == 'footer_settings') {
+            $label[1] = ( '1' == $d ? __( 'Link URL' ) . ' - ' . __( 'Likebox', 'bshvil' ) : '' );
+            $label[2] = ( '2' == $d ? __( 'Link URL' ) . ' - ' . __( 'Youtube', 'bshvil' ) : '' );
+            $label[3] = ( '3' == $d ? __( 'Content' ) . ' - ' . __( 'Contact', 'contact-form-7' ) : '' );
+            $label[4] = ( '4' == $d ? __( 'Content' ) . ' - ' . __( 'Contact', 'contact-form-7' ) . '&nbsp;2' : '' );
+            $label[5] = ( '5' == $d ? __( 'Content' ) . ' - ' . __( 'Copyright', 'bshvil' ) : '' );
+            $type = 'text';
+        } else {
+            $label[1] = ( '1' == $d ? __( 'Contact Form', 'contact-form-7' ) . ' - ' . __( 'Top' ) : '' );
+            $label[2] = ( '2' == $d ? __( 'Contact Form', 'contact-form-7' ) . ' - ' . __( 'Bottom' ) : '' );
+            $label[3] = ( '3' == $d ? __( 'Select') . '&nbsp;' . __( 'Page title' ) : '' );
+            $type = ( '3' == $d ? 'dropdown-pages' : 'text' );
+        }
         $wp_customize->add_setting(
             'cdk_'.$field.$d,
             array(
@@ -46,15 +67,12 @@ foreach ($fields as $field) {
         );
 
         $wp_customize->add_control(
-            new WP_Customize_Control(
-                $wp_customize,
-                'cdk_'.$field.$d,
-                array(
-                    'label'      => $label[$d],
-                    'section'    => $field,
-                    'settings'   => 'cdk_'.$field.$d,
-                    'type'       => 'text',
-                )
+            'cdk_'.$field.$d,
+            array(
+                'label' => $label[$d],
+                'section' => $field,
+                'settings'   => 'cdk_'.$field.$d,
+                'type' => $type,
             )
         );
     }

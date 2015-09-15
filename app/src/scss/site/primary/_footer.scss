@@ -96,7 +96,7 @@ body {
 				display: none;
 			}
 
-			&:nth-child(4n) {
+			&:nth-child {
 
 				&:after {
 					content: '';

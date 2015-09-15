@@ -61,12 +61,12 @@
 	max-width: 51.4em;
 }
 
-.description__paragraph {
+.description p {
 	@include font-size(1.125);
 	font-weight: 300;
 }
 
-.description__title {
+.description h1 {
 	@include font-size(1.875);
 	font-weight: 300;
 }
@@ -144,17 +144,22 @@
 
 }
 
-.post__paragraph,
-.post__subtitle {
-	@extend .description__paragraph;
-	@include font-size(0.875);
-	line-height: 21px;
-	line-height: 1.4rem;
-	margin: 0;
-}
+.main__section-inner {
 
-.post__subtitle {
-	font-weight: bold;
+  .post {
+
+    p, h4 {
+      @extend .description__paragraph;
+      @include font-size(0.875);
+      line-height: 21px;
+      line-height: 1.4rem;
+      margin: 0;
+    }
+
+    h4 {
+      font-weight: bold;
+    }
+  }
 }
 
 .post__link {

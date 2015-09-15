@@ -10,6 +10,13 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
+
+function example_sanitize_integer( $input ) {
+    if( is_numeric( $input ) ) {
+        return intval( $input );
+    }
+}
+
 function bshvil_customize_register( $wp_customize ) {
 
     require get_template_directory() . '/inc/header_fields.php';

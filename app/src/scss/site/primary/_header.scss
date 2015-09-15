@@ -1,99 +1,102 @@
 .site-header {
-	@include cf;
-	max-width: $container__width;
-	margin: 0 auto;
-	padding: $container__padding;
+  @include cf;
+  max-width: $container__width;
+  margin: 0 auto;
+  padding: $container__padding;
 }
 
 /* logo */
 .header__branding {
-	float: right;
+  float: right;
 }
 
 .header__branding_logo {
-	margin: 25px -45px 0 0;
+  margin: 25px -45px 0 0;
 
-
-	a span {
-		display: none;
-		text-indent: -9999px;
-	}
+  a span {
+    display: none;
+    text-indent: -9999px;
+  }
 }
 
 .header__branding_title,
 .header__branding_description {
-	display: none;
-	text-indent: -9999px;
+  display: none;
+  text-indent: -9999px;
 }
 
 /* socials */
 .header__links {
-	float: left;
+  float: left;
   margin: 22px 0 25px 2px;
 }
 
 .header__links_socials,
 .header__links_lang {
-	display: inline-block;
-	vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .header__links_socials {
-	list-style: none;
-	padding: 0;
-	font-size: 0;
+  list-style: none;
+  padding: 0;
+  font-size: 0;
 
-	li {
-		display: inline-block;
-		margin-right: 12px;
-		text-indent: -9999px;
-	}
+  li {
+    display: inline-block;
+    margin-right: 12px;
+    text-indent: -9999px;
+  }
 }
 
 .site-header .header__links_lang {
-	@include font-size(0.875);
-	color: $color__text-main;
-	text-decoration: none;
-	margin-right: 10px;
+  @include font-size(0.875);
+  color: $color__text-main;
+  text-decoration: none;
+  margin-right: 10px;
 
-	&:focus, &:active, &:visited {
-		color: $color__text-main;
-	}
+  &:focus, &:active, &:visited {
+    color: $color__text-main;
+  }
 
-	&:hover {
-		color: $color__link;
-	}
+  &:hover {
+    color: $color__link;
+  }
 }
 
 /* nav */
 .header__nav {
-	float: left;
-	max-width: 70%;
-	clear: none;
-	margin-bottom: 20px;
+  float: left;
+  max-width: 70%;
+  clear: none;
+  margin-bottom: 20px;
 
-	.menu-item {
-		margin-right: 25px;
+  .menu-item {
+    margin-left: 25px;
 
-		a {
-			@include font-size(0.875);
-			line-height: 14px;
-			line-height: 0.875rem;
-			float: left;
-			color: $color__text-main;
-			text-decoration: none;
-			transition: none;
+    &:last-child {
+      margin-left: 0;
+    }
 
-			&:hover {
-				font-weight: bold;
-				@include font-size(0.78);
-				vertical-align: bottom;
-			}
+    a {
+      @include font-size(0.875);
+      line-height: 14px;
+      line-height: 0.875rem;
+      float: left;
+      color: $color__text-main;
+      text-decoration: none;
+      transition: none;
 
-			&:focus, &:active, &:visited {
-				color: $color__text-main;
-			}
-		}
-	}
+      &:hover {
+        font-weight: bold;
+        @include font-size(0.78);
+        vertical-align: bottom;
+      }
+
+      &:focus, &:active, &:visited {
+        color: $color__text-main;
+      }
+    }
+  }
 }
 
