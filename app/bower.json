@@ -1,0 +1,39 @@
+{
+  "name": "Bshvil",
+  "homepage": "http://sigal.co.il",
+  "authors": [
+    {
+      "name": "Dima Minka",
+      "email": "cdk@cdk.co.il",
+      "homepage": "http://cdk.co.il"
+    }
+  ],
+  "keywords": [
+    "wordpress",
+    "wordpress-theme",
+    "gulp",
+    "bower",
+    "sass",
+    "browsersync",
+    "livereload"
+  ],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".sass-cache",
+    "build"
+  ],
+  "devDependencies": {
+    "normalize.css": "^3.0.3",
+    "owl-carousel": "~1.3.2",
+    "scut": "^1.2.0",
+  },
+  "dependencies": {
+    "fancybox": "~2.1.5",
+    "owl.carousel": "owl-carousel2#~2.0.0-beta.3"
+  }
+}

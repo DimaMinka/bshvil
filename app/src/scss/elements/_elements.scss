@@ -1,0 +1,193 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+@import "lists";
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+@import "tables";
+
+
+
+/*carousel slides*/
+.carousel__slide {
+	width: 16.0625em;
+	max-height: 262px;
+	overflow: hidden;
+}	
+
+.carousel__slide-img_wrap {
+	height: 206px;
+	width: 257px;
+	overflow: hidden;
+	margin-bottom: 3px;
+}
+
+.carousel__slide-img {
+	width: auto;
+	max-width: 100%;
+}
+
+.carousel__slide-decription {
+	position: relative;
+	height: 264px;
+	width: 257px;
+	background-color: #fff;
+	color: $color__brown;
+	padding: 3px 13px;
+	transition: 0.3s;
+	outline: 1px solid #fff;
+
+	&:hover {
+		margin-top: -209px;
+		padding-top: 10px;
+
+	}
+}
+
+.carousel__slide-title,
+.carousel__slide-date,
+.carousel__slide-paragraph {
+	@include font-size(0.875);
+	font-size: 0.875em;
+	margin: 0;
+}
+
+.carousel__slide-paragraph {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height: 18px;
+	line-height: 1.1rem;
+}
+
+
+@keyframes puls {
+	from {transform: scale(1);}
+	to {transform: scale(1.2);} 
+}
+
+.carousel__slide-link {
+	@extend .arrows;
+	@extend .arrows__arr-link;
+  position: absolute;
+  left: 13px;
+  bottom: 221px;
+  text-indent: -9999px;
+  font-size: 0px;
+  transition: 0.3s;
+
+  &:hover {
+  	animation: puls 0.6s ease-in-out 0.6s infinite alternate;
+  }
+}
+
+.carousel__slide-decription:hover .carousel__slide-link {
+	bottom: 12px;
+}
+
+.owl-carousel-yt {
+
+	.carousel__slide {
+		width: 34.75em;
+		min-height: 340px;
+		max-height: none;
+	}
+
+	.carousel__slide-video {
+		position: relative;
+		height: 332px;
+		overflow: hidden;
+	}
+
+	.carousel__slide-img {
+		width: auto;
+		max-width: 100%;
+	}
+
+	.carousel__slide-video_link {
+		text-decoration: none;
+		color: $color__red;
+
+		&:hover {
+			color: $color__brown;
+		}
+
+		.carousel__slide-title,
+		.carousel__slide-paragraph {
+			float: right;
+			clear: right;
+		}
+
+		.carousel__slide-title {
+			margin-top: 5px;
+		}
+
+		.carousel__slide-paragraph {
+			margin-top: 0;
+		}
+	}
+
+}
+
+.carousel__slide-playbtn {
+	position: absolute;
+	top: calc(50% - 60px);
+	right: calc(50% - 60px);
+	display: block;
+	width: 120px;
+	height: 120px;
+	background-color: rgba(#525252, 0.54);
+	box-shadow: inset 2.5px 4.3px 5px rgba(0, 0, 0, 0.55);
+	font-size: 0;
+	text-indent: -9999px;
+	border-radius: 50%;
+	
+	&:hover {
+		box-shadow: inset 2.5px 4.3px 8px rgba(0, 0, 0, 0.65);
+		background-color: rgba(#525252, 0.64);
+	}
+
+
+	&:after {
+		content: ''; 
+		display: block;
+		position: absolute;
+    top: 34px;
+    right: 41px;
+		height: 0;
+		width: 0;
+		border: 28px solid transparent;
+		border-right: 48px solid #fff;
+	}
+
+}

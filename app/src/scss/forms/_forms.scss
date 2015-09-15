@@ -1,0 +1,142 @@
+@import "buttons";
+
+@import "fields";
+
+.form__wrapper {
+	min-height: 318px;
+	background-color: $color__background-body;
+	border: 1px solid #c3c3c3;
+}
+.form__wrapper-alternate {
+	min-height: 408px;
+}
+
+.form__title {
+	@include font-size(2.25);
+	font-weight: 400;
+	min-height: 48px;
+	line-height: 48px;
+	background-color: #97bf0d;
+	color: #fff;
+	margin: 0 0 13px 0;
+	text-align: center;
+	vertical-align: middle;
+}
+.form__wrapper-alternate .form__title {
+	min-height: 70px;
+	line-height: 70px;
+	margin-bottom: 27px;
+}
+
+.form__description {
+	@include font-size(0.875);
+	margin: 0;
+	padding: 0 18px;
+	white-space: nowrap;
+}
+
+
+.wpcf7 {
+	@include cf();
+	padding: 0 18px 12px;
+	
+	p {
+		margin-bottom: 1.2em;
+	}
+
+	input {
+		width: 100%;
+		border-radius: 0;
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+
+	input::-webkit-input-placeholder {
+		color: $color__text-main;
+		@include font-size(0.875);
+	}
+	input::-moz-placeholder          {
+		color: $color__text-main;
+		@include font-size(0.875);
+	}/* Firefox 19+ */
+	input:-moz-placeholder           {
+		color: $color__text-main;
+		@include font-size(0.875);
+	}/* Firefox 18- */
+	input:-ms-input-placeholder      {
+		color: $color__text-main;
+		@include font-size(0.875);
+	}
+
+	input[type="submit"] {
+		@include font-size(1.125);
+		background-color: $color__grey;
+		width: 80px;
+		height: 38px;
+		margin-top: -5px;
+		padding-top: 5px;
+		box-shadow: none;
+		font-weight: 500;
+		float: left;
+		color: #928b7e;
+		text-align: right;
+    padding-right: 18px;
+	}
+
+}
+
+.helper {
+	position: relative;
+	display: block;
+
+	&:before {
+    position: absolute;
+    content: '>';
+    left: 10px;
+    top: -2px;
+    font-size: 1.285em;
+    font-weight: 400;
+    color: #928b7e;
+	}
+}
+
+.form__wrapper-alternate {
+
+	.helper:before {
+	    top: 3px;
+		}
+}
+
+.form__wrapper-alternate .wpcf7 {
+	padding: 20px 25px 12px;
+	
+	p {
+		margin-bottom: 1em;
+	}
+
+	input {
+		height: 35px;
+	}
+
+	input[type="submit"] {
+		margin-top: 0px;
+	}
+}
+
+
+
+.wpcf7-not-valid {
+	border-color: $color__red !important;
+}
+
+.wpcf7-not-valid-tip {
+	display: none !important;
+}
+
+.wpcf7-validation-errors {
+	display: none !important;
+}
+
+.wpcf7-mail-sent-ok {
+	display: block !important;
+}
