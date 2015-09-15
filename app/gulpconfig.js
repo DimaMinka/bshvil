@@ -107,6 +107,10 @@ module.exports = {
       src: src+'**/*.php'
     , dest: build
     }
+  , fonts: {
+      src: src+'fonts/**/*'
+    , dest: build+'fonts/'
+    }
   },
 
   utils: {

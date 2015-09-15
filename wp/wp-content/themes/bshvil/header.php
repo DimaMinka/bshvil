@@ -29,7 +29,7 @@
 
 			<figure class="header__branding_logo">
 				<a href="/">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Logo" alt="Logotype">
+					<img src="<?php if(  get_header_image() ) : echo get_header_image(); else : echo get_template_directory_uri(); ?>/images/logo.png<?php endif; ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>">
 					<span>Site Logo</span>
 				</a>
 			</figure>
@@ -44,11 +44,18 @@
 
 		<div class="header__links">
 			<ul class="header__links_socials">
-				<li><a class="header__links_social header__links_social-mail" href="#" target="_blank">Mail to</a></li>
-				<li><a class="header__links_social header__links_social-in" href="#" target="_blank">LinkedIn</a></li>
-				<li><a class="header__links_social header__links_social-fb" href="#" target="_blank">Facebook</a></li>
+				<li><a class="header__links_social header__links_social-mail" href="<?php if( get_theme_mod( 'cdk_header_2', true ) && filter_var( get_theme_mod( 'cdk_header_2', true ), FILTER_VALIDATE_EMAIL ) ) echo 'mailto:'.get_theme_mod( 'cdk_header_2', true ); ?>" target="_blank">Mail to</a></li>
+				<li><a class="header__links_social header__links_social-in" href="<?php if( get_theme_mod( 'cdk_header_3', true ) ) echo get_theme_mod( 'cdk_header_3', true ); ?>" target="_blank">LinkedIn</a></li>
+				<li><a class="header__links_social header__links_social-fb" href="<?php if( get_theme_mod( 'cdk_header_4', true ) ) echo get_theme_mod( 'cdk_header_4', true ); ?>" target="_blank">Facebook</a></li>
 			</ul>
-			<a href="#" class="header__links_lang">English</a>
+            <?php if( get_theme_mod( 'cdk_header_1', true ) ) :
+                $customLink = get_theme_mod( 'cdk_header_1', true );
+                $customID = url_to_postid( get_theme_mod( 'cdk_header_1', true ) );
+            ?>
+
+                <a href="<?php echo $customLink; ?>" class="header__links_lang"><?php echo get_the_title( $customID ); ?></a>
+
+            <?php endif; ?>
 		</div>
 
 		<nav id="site-navigation" class="main-navigation header__nav" role="navigation">

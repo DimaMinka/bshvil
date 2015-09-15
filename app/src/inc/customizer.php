@@ -11,6 +11,11 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function bshvil_customize_register( $wp_customize ) {
+
+    require get_template_directory() . '/inc/header_fields.php';
+
+    require get_template_directory() . '/inc/advanced_fields.php';
+
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
